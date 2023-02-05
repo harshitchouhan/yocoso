@@ -10,6 +10,30 @@ export const content: Routes = [
     loadChildren: () => import("../../components/dashboard/dashboard.module").then((m) => m.DashboardModule),
   },
   {
+    path: "user-management",
+    loadChildren: () => import("../../components/user-management/user-management.module").then((m) => m.UserManagementModule),
+  },
+  {
+    path: "routes-management",
+    loadChildren: () => import("../../components/route-management/route-management.module").then((m) => m.RouteManagementModule),
+  },
+  {
+    path: "orders-management",
+    loadChildren: () => import("../../components/orders-management/orders-management.module").then((m) => m.OrdersManagementModule),
+  },
+  {
+    path: "tracking-updates",
+    loadChildren: () => import("../../components/tracking-updates/tracking-updates.module").then((m) => m.TrackingUpdatesModule),
+  },
+  {
+    path: "notifications",
+    loadChildren: () => import("../../components/notifications/notifications.module").then((m) => m.NotificationsModule),
+  },
+  {
+    path: "insurance-management",
+    loadChildren: () => import("../../components/insurance-management/insurance-management.module").then((m) => m.InsuranceManagementModule),
+  },
+  {
     path: "students",
     loadChildren: () => import("../../components/students/students.module").then((m) => m.StudentsModule),
   },
