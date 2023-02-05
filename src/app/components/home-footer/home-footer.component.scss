@@ -1,0 +1,13 @@
+.home-footer {
+  background-color: rgba(1, 9, 61, 0.1);
+  padding: 3rem 0 1rem;
+
+  &--logo-container {
+    width: 8rem;
+  }
+
+  & .copyright {
+    border-top: 1px solid rgba(1, 9, 61, 0.1);
+    text-align: center;
+  }
+}

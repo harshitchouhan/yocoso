@@ -1,0 +1,162 @@
+<app-breadcrumb [title]="" [items]="[{ label: 'Students', link: '/students' }]" [active_item]="'Student - ' + id"></app-breadcrumb>
+
+<div class="container-fluid">
+  <div class="row mb-3">
+    <div class="col-lg-2 d-flex flex-column justify-content-start align-items-center">
+      <div class="avatars mb-2 mt-4">
+        <div class="avatar">
+          <img class="student-img" src="assets/images/user/1.jpg" alt="#" />
+          <!-- <div class="status status-100 bg-success"></div> -->
+        </div>
+      </div>
+      <div class="media">
+        <label class="col-form-label m-r-10">Active</label>
+        <div class="media-body text-end icon-state">
+          <label class="switch">
+            <input type="checkbox" [checked]="checked" (change)="checked = !checked" /><span class="switch-state" [ngClass]="{ 'bg-success': checked, 'bg-danger': !checked }"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-10">
+      <div class="card card-absolute">
+        <div class="card-header bg-primary">
+          <h5 class="text-white">Personal Details</h5>
+        </div>
+        <div class="card-body">
+          <div class="form-row">
+            <div class="col-12 col-lg-6 mb-3">
+              <label class="form-label" for="validationCustom01">Enrollment Number</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Enrollment Number" required="" onlyAlphabets disabled />
+            </div>
+            <div class="col-12 col-lg-6 mb-3">
+              <label class="form-label" for="validationCustom01">Name</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Name" required="" onlyAlphabets disabled />
+            </div>
+            <div class="col-12 col-lg-6 mb-3">
+              <label class="form-label" for="validationCustom01">Date of Birth</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Date of Birth" required="" onlyAlphabets disabled />
+            </div>
+
+            <div class="col-12 col-lg-6 mb-3">
+              <label class="form-label" for="validationCustom01">Email</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Email" required="" onlyAlphabets disabled />
+            </div>
+            <div class="col-12 col-lg-6 mb-3">
+              <label class="form-label" for="validationCustom01">Phone Number</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Phone Number" required="" onlyAlphabets disabled />
+            </div>
+            <div class="col-12 col-lg-6 mb-3">
+              <label class="form-label" for="validationCustom01">Gender</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Gender" required="" onlyAlphabets disabled />
+            </div>
+
+            <div class="col-12 col-lg-6 mb-3">
+              <label class="form-label" for="validationCustom01">City</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="City" required="" onlyAlphabets disabled />
+            </div>
+            <div class="col-12 col-lg-6 mb-3">
+              <label class="form-label" for="validationCustom01">State</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="State" required="" onlyAlphabets disabled />
+            </div>
+            <div class="col-12 col-lg-6 mb-3">
+              <label class="form-label" for="validationCustom01">Pincode</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Pincode" required="" onlyAlphabets disabled />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card card-absolute">
+        <div class="card-header bg-primary">
+          <h5 class="text-white">Subscription Details</h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Package Name</th>
+                  <th scope="col">Purchase Date</th>
+                  <th scope="col">Start Date</th>
+                  <th scope="col">End Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Gold</td>
+                  <td>21 Oct, 2022</td>
+                  <td>01 Nov, 2022</td>
+                  <td>01 Jan, 2023</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card card-absolute">
+        <div class="card-header bg-primary">
+          <h5 class="text-white">Tests</h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Test Name</th>
+                  <th scope="col">Duration</th>
+                  <th scope="col">Questions Attempted</th>
+                  <th scope="col">Correct Answers</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Bank PO - Mains</td>
+                  <td>120 mins</td>
+                  <td>60</td>
+                  <td>45</td>
+                  <td>07:05 AM 20 Oct, 2022</td>
+                  <td>Completed</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Bank PO - Mains</td>
+                  <td>120 mins</td>
+                  <td>60</td>
+                  <td>45</td>
+                  <td>07:05 AM 20 Oct, 2022</td>
+                  <td>Paused</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Bank PO - Mains</td>
+                  <td>120 mins</td>
+                  <td>60</td>
+                  <td>45</td>
+                  <td>07:05 AM 20 Oct, 2022</td>
+                  <td>Ongoing</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

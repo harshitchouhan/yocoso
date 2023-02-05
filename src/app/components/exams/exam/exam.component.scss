@@ -1,0 +1,11 @@
+.accordian {
+  &-header {
+    position: relative;
+  }
+
+  &-delete-btn {
+    position: absolute;
+    top: 20%;
+    right: 3rem;
+  }
+}

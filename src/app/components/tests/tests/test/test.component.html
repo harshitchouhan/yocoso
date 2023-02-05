@@ -1,0 +1,75 @@
+<app-breadcrumb *ngIf="!id" [title]="" [items]="[{ label: 'Test', link: '/tests' }]" [active_item]="'Add Test'"></app-breadcrumb>
+<app-breadcrumb *ngIf="id" [title]="" [items]="[{ label: 'Test', link: '/tests' }]" [active_item]="'Test - ' + id"></app-breadcrumb>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card card-absolute">
+        <div class="card-header bg-primary">
+          <h5 class="text-white">Test Details</h5>
+        </div>
+        <div class="card-body">
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Test Type</label>
+              <select class="form-control digits" id="showEntries" [(ngModel)]="testType">
+                <option selected>Mock</option>
+                <option>Sectional</option>
+                <option>Topic</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="validationCustom01">Title</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Title" required="" onlyAlphabets />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label class="form-label" for="validationCustom01">{{ testType }}</label>
+              <ng-select [items]="defaultBindingsList" class="custom-multi-select-border" placeholder="Select" [clearable]="false" [searchable]="false"></ng-select>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label" for="validationCustom01">No. of Questions</label>
+              <input class="form-control" id="validationCustom01" type="number" placeholder="No. of Questions" required="" onlyAlphabets />
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label" for="validationCustom01">Duration </label>
+              <!-- <input class="form-control" id="validationCustom01" type="number" placeholder="Duration" required="" onlyAlphabets /> -->
+              <div class="input-group">
+                <input class="form-control" type="number" placeholder="Duration" aria-label="Duration" />
+                <div class="input-group-append"><span class="input-group-text">mins</span></div>
+              </div>
+            </div>
+
+            <div class="col-md-1">
+              <label class="col-form-label m-r-10">Free</label>
+              <div class="media-body text-start icon-state">
+                <label class="switch"> <input type="checkbox" checked="" /><span class="switch-state"></span> </label>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <label class="col-form-label m-r-10">Active</label>
+              <div class="media-body text-start icon-state">
+                <label class="switch">
+                  <input type="checkbox" [checked]="checked" (change)="checked = !checked" /><span class="switch-state" [ngClass]="{ 'bg-success': checked, 'bg-danger': !checked }"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-1">
+              <button class="btn btn-primary mt-3" type="submit" (click)="showForm = !showForm">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-question *ngIf="showForm"></app-question>

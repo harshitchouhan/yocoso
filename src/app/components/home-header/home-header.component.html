@@ -1,0 +1,87 @@
+<header class="home-header d-flex align-items-center shadow-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center justify-content-between w-50">
+          <a [routerLink]="['/home']" class="m-r-25">
+            <img src="assets/logo/Logo-org-blue.png" alt="Yes Mock Logo" class="home-header--logo" />
+          </a>
+
+          <div class="input-group d-none d-lg-flex">
+            <input type="text" placeholder="Search Exams" class="form-control" />
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="icofont icofont-search-alt-2"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-air-primary btn-primary" (click)="openVerticallyCentered(content)">Login / Signup</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<ng-template #content let-modal>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="login-card">
+          <div class="login-main">
+            <div class="logo-container">
+              <img src="assets/logo/Logo-org-blue.png" alt="Logo" />
+              <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+
+            <form class="theme-form">
+              <h4>Sign in to account</h4>
+              <p>Enter your mobile number & otp to login</p>
+              <div class="form-group">
+                <label class="col-form-label">Enter Your Mobile Number</label>
+                <div class="row">
+                  <div class="col-4 col-md-3">
+                    <input class="form-control mb-1" type="text" value="+ 91" disabled />
+                  </div>
+                  <div class="col-8 col-md-9">
+                    <input class="form-control mb-1" type="tel" value="000-000-0000" />
+                  </div>
+                  <div class="col-12">
+                    <button class="btn btn-primary d-block w-100 m-t-10" type="submit">Send OTP</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center mt-4 mb-4">
+                <span class="reset-password-link">If don't receive OTP?  <a class="btn-link text-danger" routerLink="/">Resend</a></span>
+              </div>
+
+              <div class="form-group">
+                <label class="col-form-label pt-0">Enter OTP</label>
+                <div class="row">
+                  <div class="col">
+                    <input class="form-control text-center opt-text" type="text" value="0" maxlength="1" />
+                  </div>
+                  <div class="col">
+                    <input class="form-control text-center opt-text" type="text" value="0" maxlength="1" />
+                  </div>
+                  <div class="col">
+                    <input class="form-control text-center opt-text" type="text" value="0" maxlength="1" />
+                  </div>
+                  <div class="col">
+                    <input class="form-control text-center opt-text" type="text" value="0" maxlength="1" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group mb-0">
+                <button class="btn btn-primary d-block w-100" type="button">
+                  <span>Login</span>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,31 @@
+.card-header-buttons {
+  &--delete {
+    right: 15px;
+    left: unset;
+    cursor: pointer;
+  }
+
+  &--show {
+    right: 115px;
+    left: unset;
+    cursor: pointer;
+  }
+}
+
+.accordian {
+  &-header {
+    position: relative;
+  }
+
+  &-delete-btn {
+    position: absolute;
+    top: 20%;
+    right: 4%;
+  }
+
+  &-edit-btn {
+    position: absolute;
+    top: 20%;
+    right: 7%;
+  }
+}

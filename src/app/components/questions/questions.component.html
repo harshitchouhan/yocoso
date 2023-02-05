@@ -1,0 +1,95 @@
+<app-breadcrumb [title]="'Questions'" [items]="[]" [active_item]="'Questions'"></app-breadcrumb>
+
+<!-- Container-fluid starts -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="p20-40 card-header">
+          <form class="form theme-form">
+            <div class="row">
+              <div class="col">
+                <div class="form-group row">
+                  <div class="col-sm-1">
+                    <label for="showEntries">Show Entries</label>
+                    <select class="form-control digits" id="showEntries" (change)="onShowEntriesChange($event)">
+                      <option>5</option>
+                      <option>10</option>
+                      <option>15</option>
+                      <option selected>20</option>
+                    </select>
+                  </div>
+
+                  <div class="offset-7 col-sm-1">
+                    <label for="showEntries">Status</label>
+                    <select class="form-control digits">
+                      <option>Active</option>
+                      <option>Inactive</option>
+                    </select>
+                  </div>
+
+                  <div class="col-sm-3">
+                    <label for="exampleFormControlSelect9">Search:</label>
+                    <input class="form-control" type="text" placeholder="Search" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-body custom-datatable noscroll">
+          <div class="custom-datatable table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Sr No.</th>
+                  <th class="cursor" scope="col" sortable="title" (sort)="onSort($event)">Title</th>
+                  <th class="cursor" scope="col" sortable="type" (sort)="onSort($event)">Type</th>
+                  <th class="cursor" scope="col" sortable="noOfQuestions" (sort)="onSort($event)">No. of Questions</th>
+                  <th class="cursor" scope="col" sortable="duration" (sort)="onSort($event)">Duration</th>
+                  <th class="cursor" scope="col" sortable="status" (sort)="onSort($event)">Status</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of tableItem$ | async; index as i">
+                  <td>
+                    {{ i + 1 }}
+                  </td>
+                  <td scope="row">
+                    {{ item.title }}
+                  </td>
+                  <td>
+                    {{ item.type }}
+                  </td>
+                  <td>
+                    {{ item.noOfQuestions }}
+                  </td>
+                  <td>
+                    {{ item.duration }}
+                  </td>
+                  <td>
+                    <span class="badge rounded-pill badge-success" *ngIf="item.status === 'Active'">{{ item.status }}</span>
+                    <span class="badge rounded-pill badge-danger" *ngIf="item.status === 'Inactive'">{{ item.status }}</span>
+                  </td>
+                  <td>
+                    <button placement="top" ngbTooltip="View Details">
+                      <a [routerLink]="['/questions', i, 'view']"> <i class="fa fa-eye"></i></a>
+                    </button>
+                    <button placement="top" ngbTooltip="Edit">
+                      <a [routerLink]="['/questions', i, 'edit']"> <i class="fa fa-edit"></i></a>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="d-flex justify-content-between p-2">
+              <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize"> </ngb-pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Container-fluid Ends -->

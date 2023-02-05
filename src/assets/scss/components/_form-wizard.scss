@@ -1,0 +1,63 @@
+/**=====================
+     48. Form Wizard CSS Start
+==========================**/
+.wizard-steps {
+  .form-group {
+    .invalid-message {
+      color: red;
+      font-size: 12px;
+    }
+  }
+}
+// form wizard 2
+aw-wizard-navigation-bar {
+  &.horizontal {
+    &.large-filled-symbols {
+      ul {
+        &.steps-indicator {
+          li {
+            &.done,
+            &.current {
+              .step-indicator {
+                color: $white;
+              }
+            }
+          }
+        }
+      }
+    }
+    ul {
+      &.steps-indicator {
+        &.steps-4 {
+          padding-bottom: 30px !important;
+          li {
+            p {
+              color: $theme-font-color;
+              margin-top: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+  ul {
+    &.steps-indicator {
+      p{
+        color: $theme-font-color !important;
+      }
+      i {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+aw-wizard-navigation-bar{
+  &.horizontal.large-filled-symbols{
+    ul.steps-indicator{
+      padding: 60px 0 20px 0 !important;
+    }
+  }
+} 
+/**=====================
+    48. Form Wizard CSS Ends
+==========================**/

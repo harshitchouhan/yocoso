@@ -1,0 +1,55 @@
+<app-breadcrumb [title]="'Policies'" [items]="[]" [active_item]="'Policies'"></app-breadcrumb>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card card-absolute">
+        <div class="card-header bg-primary">
+          <h5 class="text-white">Contact Us</h5>
+        </div>
+        <div class="card-body">
+          <ckeditor [editor]="editor" [config]="config" [data]="data"></ckeditor>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="card card-absolute">
+        <div class="card-header bg-primary">
+          <h5 class="text-white">About Us</h5>
+        </div>
+        <div class="card-body">
+          <ckeditor [editor]="editor" [config]="config" [data]="data"></ckeditor>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="card card-absolute">
+        <div class="card-header bg-primary">
+          <h5 class="text-white">Terms & Conditions</h5>
+        </div>
+        <div class="card-body">
+          <ckeditor [editor]="editor" [config]="config" [data]="data"></ckeditor>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="card card-absolute">
+        <div class="card-header bg-primary">
+          <h5 class="text-white">Privacy Policy</h5>
+        </div>
+        <div class="card-body">
+          <ckeditor [editor]="editor" [config]="config" [data]="data"></ckeditor>
+
+          <div class="form-row">
+            <div class="col-12 d-flex justify-content-end">
+              <button class="btn btn-primary mt-3" type="submit">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

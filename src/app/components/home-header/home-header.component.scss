@@ -1,0 +1,61 @@
+.home-header {
+  height: 5rem;
+
+  position: sticky;
+  background-color: #fff;
+  top: 0;
+  z-index: 1;
+
+  &--logo {
+    width: auto;
+    height: 2.5rem;
+  }
+
+  & .form-control {
+    border: 1px solid #ced4da;
+
+    &:focus {
+      box-shadow: none !important;
+      border: 1px solid #ced4da;
+    }
+
+    &::placeholder {
+      color: #ced4da;
+      font-weight: 200;
+    }
+  }
+}
+
+.logo-container {
+  margin-bottom: 3rem;
+  text-align: center;
+
+  & img {
+    height: 3rem;
+    width: auto;
+  }
+}
+
+.login-card {
+  min-height: unset;
+
+  padding-top: calc(var(--bs-gutter-x) * 0.5);
+  padding-bottom: calc(var(--bs-gutter-x) * 0.5);
+  background: unset;
+
+  & .login-main {
+    padding: 20px;
+    box-shadow: unset;
+    width: 450px;
+  }
+}
+
+.btn-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  &:focus {
+    box-shadow: none !important;
+  }
+}

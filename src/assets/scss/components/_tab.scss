@@ -1,0 +1,281 @@
+/**=====================
+    44. Tabs CSS Start
+==========================**/
+.nav-tabs,
+.nav-pills {
+  margin-bottom: 30px;
+  .nav-link {
+    cursor: pointer;
+    color: $primary-color;
+  }
+}
+.tab-content {
+  .tab-pane {
+    &.active {
+      animation: fadeIn 0.5s ease-out;
+    }
+  }
+}
+.nav-pills {
+  &.nav-tabs.nav{
+    border-bottom: 0;
+  }
+  .nav-link.active,
+  .show > .nav-link {
+    background-color: $primary-color;
+    border-radius: 4px;
+  }
+}
+.nav-pills {
+  .nav-link.active,
+  .show > .nav-link {
+    .nav-tabset{
+      background-color: $primary-color;
+      border-radius: 4px;
+    }
+    
+  }
+}
+.nav-tabs {
+  .nav-link {
+    color: var(--theme-deafult);
+  }
+}
+
+.nav-pills {
+  .nav-link.active,
+  .show > .nav-link {
+    background-color: var(--theme-deafult);
+  }
+}
+.nav {
+  i {
+    margin-right: 2px;
+  }
+}
+
+$nav-name: theme, primary, secondary, success, danger, info, light, dark,
+  warning;
+$nav-color: var(--theme-deafult), var(--theme-deafult), $secondary-color,
+  $success-color, $danger-color, $info-color, $light-color, $dark-color,
+  $warning-color;
+@each $var in $nav-name {
+  $i: index($label-name, $var);
+  .nav-#{$var},
+  .nav-pills.nav-#{$var} {
+    .nav-link {
+      color: nth($nav-color, $i);
+    }
+    .nav-link.active,
+    .show > .nav-link {
+      background-color: nth($nav-color, $i);
+      color: $white;
+    }
+  }
+}
+.nav-right{
+  justify-content: flex-end;
+}
+.nav-tabs.nav-bottom {
+  .nav-item {
+    .nav-link.active,
+    .nav-link.focus,
+    .nav-link.hover {
+      border-color: $white #dee2e6 #dee2e6;
+    }
+  }
+}
+.tab-content {
+  ~ .nav-tabs {
+    &.border-tab {
+      margin-bottom: 0;
+      margin-top: 30px;
+    }
+  }
+}
+// Material style css
+.border-tab.nav-tabs {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 30px;
+  .nav-item {
+    .nav-link {
+      font-size: 16px;
+      color: $dark-color;
+      text-align: center;
+      padding: 10px 25px;
+      border: none;
+      border-bottom: 2px solid $transparent-color;
+      transition: 0.3s;
+      &.active,
+      &.show,
+      &:focus,
+      &:hover {
+        color: $primary-color;
+      }
+      &.active,
+      &.show,
+      &:focus {
+        border-bottom: 2px solid $primary-color;
+      }
+    }
+  }
+}
+.border-tab.nav-left {
+  .nav-link {
+    border-left: 2px solid transparent;
+    transition: all 0.3s ease;
+    color: $dark-color;
+  }
+  .nav-link.active,
+  .show > .nav-link {
+    background-color: transparent;
+    border-left-color: var(--theme-deafult);
+    color: var(--theme-deafult);
+    border-radius: 0;
+    transition: all 0.3s ease;
+  }
+}
+.border-tab.nav-right {
+  .nav-link {
+    border-right: 2px solid transparent;
+    transition: all 0.3s ease;
+    color: $dark-color;
+    text-align: right;
+  }
+  .nav-link.active,
+  .show > .nav-link {
+    background-color: transparent;
+    border-right-color: var(--theme-deafult);
+    color: var(--theme-deafult);
+    border-radius: 0;
+    transition: all 0.3s ease;
+  }
+}
+$m-nav-name: theme, primary, secondary, success, danger, info, light, dark,
+  warning;
+$nav-color: var(--theme-deafult), var(--theme-deafult), $secondary-color,
+  $success-color, $danger-color, $info-color, $light-color, $dark-color,
+  $warning-color;
+@each $var in $m-nav-name {
+  $i: index($label-name, $var);
+  .border-tab.nav-#{$var} {
+    .nav-link.active,
+    .nav-item.show,
+    .nav-link:focus,
+    .nav-link:hover {
+      color: nth($nav-color, $i);
+      background-color: transparent;
+    }
+    .nav-item {
+      .nav-link {
+        transition: 0.3s;
+        &.active,
+        &.show,
+        &:focus {
+          border-bottom: 2px solid nth($nav-color, $i);
+        }
+        &.active,
+        &.show,
+        &:focus,
+        &:hover {
+          color: nth($nav-color, $i);
+        }
+      }
+    }
+  }
+  .border-tab.nav-left.nav-#{$var} {
+    .nav-link.active,
+    .show > .nav-link {
+      border-left-color: nth($nav-color, $i);
+      color: nth($nav-color, $i);
+    }
+  }
+  .border-tab.nav-right.nav-#{$var} {
+    .nav-link.active,
+    .show > .nav-link {
+      border-right-color: nth($nav-color, $i);
+      color: nth($nav-color, $i);
+    }
+  }
+}
+.tabbed-card {
+  .nav-tabset{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    span{
+      display: block;
+      padding: 0.5rem 1rem;
+    }
+    .nav-tab{
+      &.active{
+        border-radius: 4px;
+      }
+    }
+  }
+  ul {
+    position: absolute;
+    right: 22px;
+    top: 34px;
+    border-bottom: none;
+    &.border-tab {
+      &.nav-tabs {
+        top: 12px;
+        .nav-item {
+          float: right;
+          .nav-link {
+            padding: 32px 15px;
+          }
+        }
+      }
+    }
+  }
+}
+@each $tab-name, $tab-color in (primary, $primary-color),
+  (secondary, $secondary-color), (success, $success-color),
+  (danger, $danger-color), (info, $info-color), (dark, $dark-color),
+  (warning, $warning-color)
+{
+  .nav-#{$tab-name} {
+    .nav-tabset{
+      .nav-tab{
+        color: $tab-color;
+        padding: 0;
+        border: 0;
+        &.active{
+          background-color: $tab-color;
+          color: $white !important;
+        }
+      }
+    }
+  }
+}
+@each $border-name, $border-color in (primary, $primary-color),
+  (secondary, $secondary-color), (success, $success-color),
+  (danger, $danger-color), (info, $info-color), (dark, $dark-color),
+  (warning, $warning-color)
+{ 
+  .borderb-tab-#{$border-name} {
+    .nav-tabset{
+      right: 34px;
+      span{
+        padding: 8px 16px 42px;
+      }
+      .nav-tab{
+        border-radius: 0 !important;
+        padding: 0;
+        &.active{
+          border-bottom: 2px solid $border-color;
+          color: $border-color;
+        }
+      }
+    }
+  }
+}
+/**=====================
+     44. Tabs CSS Ends
+==========================**/

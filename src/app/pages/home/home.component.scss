@@ -1,0 +1,134 @@
+.home {
+  &-banner {
+    // height: 20rem;
+    padding: 1.5rem 0;
+
+    &--img {
+      height: 25rem;
+      width: auto;
+    }
+  }
+
+  &-upcoming-exams {
+    padding: 1.5rem 0 2.5rem;
+
+    &--img-container {
+      height: 5rem;
+      width: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+
+      & img {
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+
+    &--container {
+      padding: 1rem;
+    }
+
+    &--title {
+      margin-bottom: 0;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+  }
+
+  &-exams-category {
+    padding: 1.5rem 0 2.5rem;
+
+    &--container {
+    }
+
+    &--exams {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: stretch;
+      align-content: stretch;
+      justify-content: flex-start;
+
+      &-container {
+        padding: 1rem;
+        border-radius: 0.5rem;
+
+        display: flex;
+        width: 150px;
+        padding: 8px;
+        // width: 5rem;
+
+        &--img {
+          height: 5rem;
+          width: 5rem;
+
+          & img {
+            width: 100%;
+          }
+        }
+      }
+
+      &-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        justify-content: flex-start;
+        padding: 12px 6px 16px;
+        background-color: rgba(1, 9, 61, 0.1);
+        border: 1px solid #e2e5ef;
+        border-radius: 15px;
+        cursor: pointer;
+        width: 100%;
+      }
+    }
+
+    &--noexams {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 5rem;
+    }
+  }
+
+  &-features {
+    padding: 1.5rem 0 2.5rem;
+
+    &--box {
+      background-color: rgba(1, 9, 61, 0.1);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    & .icon-container {
+      height: 6rem;
+      width: 6rem;
+      margin: 0 auto;
+      background: #01093d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+
+      & .icofont {
+        font-size: 4rem;
+        color: white;
+      }
+    }
+  }
+
+  &-packages {
+    padding: 1.5rem 0 2.5rem;
+
+    & .pricingtable {
+      z-index: unset;
+    }
+  }
+
+  &-posts {
+    padding: 1.5rem 0 2.5rem;
+  }
+}

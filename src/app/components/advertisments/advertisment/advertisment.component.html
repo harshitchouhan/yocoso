@@ -1,0 +1,96 @@
+<app-breadcrumb [title]="'Advertisments'" [items]="[]" [active_item]="'Advertisments'"></app-breadcrumb>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card card-absolute">
+        <div class="card-header bg-primary">
+          <h5 class="text-white">Advertisment Details</h5>
+        </div>
+        <div class="card-body">
+          <div class="form-row">
+            <div class="col-12 mb-3">
+              <label class="form-label" for="validationCustom01">Image</label>
+              <!-- <input class="form-control" id="validationCustom01" type="url" placeholder="Image URL" required="" /> -->
+              <ngx-dropzone (change)="onSelect($event)" [multiple]="false">
+                <ngx-dropzone-label>
+                  <div class="dz-message needsclick">
+                    <i class="icon-cloud-up"></i>
+                    <h6>Drop files here or click to upload.</h6>
+                  </div>
+                </ngx-dropzone-label>
+                <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                  <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                </ngx-dropzone-preview>
+              </ngx-dropzone>
+
+              <small><strong>Note:</strong> Image should be in 16:9 ratio.</small>
+            </div>
+
+            <div class="col-md-1">
+              <label class="col-form-label m-r-10">Active</label>
+              <div class="media-body text-start icon-state">
+                <label class="switch">
+                  <input type="checkbox" [checked]="checked" (change)="checked = !checked" /><span class="switch-state" [ngClass]="{ 'bg-success': checked, 'bg-danger': !checked }"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-1">
+              <button class="btn btn-primary mt-3" type="submit">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card card-absolute">
+        <div class="card-header bg-primary">
+          <h5 class="text-white">Advertisment Sequence</h5>
+        </div>
+        <div class="card-body">
+          <div class="form-row ui-sortable" [dragula]="adSequence" [(dragulaModel)]="data">
+            <div class="col-sm-12 col-xl-3" *ngFor="let advertisment of data; let i = index">
+              <div class="card">
+                <div class="card-body pb-1">
+                  <div class="ribbon ribbon-clip ribbon-secondary">{{ i + 1 }}</div>
+                  <div class="row">
+                    <div class="col-12 mb-2">
+                      <img [src]="advertisment.url" alt="Banner" class="w-100 handle" />
+                    </div>
+                    <div class="col-12 d-flex justify-content-between">
+                      <div class="d-flex align-items-center">
+                        <label class="col-form-label m-r-10">Active</label>
+                        <div class="media-body text-start icon-state">
+                          <label class="switch m-0">
+                            <input type="checkbox" [checked]="advertisment.active" (change)="advertisment.active = !advertisment.active" /><span
+                              class="switch-state"
+                              [ngClass]="{ 'bg-success': advertisment.active, 'bg-danger': !advertisment.active }"
+                            ></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="d-flex">
+                        <span class="text-danger f-22 delete"><i class="icofont icofont-bin delete" [id]="advertisment.id"></i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-1">
+              <button class="btn btn-primary mt-3" type="submit">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

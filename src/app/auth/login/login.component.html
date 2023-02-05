@@ -1,0 +1,38 @@
+<div class="container-fluid p-0">
+  <div class="row">
+    <div class="col-12">
+      <div class="login-card">
+        <div>
+          <div class="login-main">
+            <div class="logo-container">
+              <!-- <img src="assets/logo/Logo-org-blue.png" alt="Logo" /> -->
+              <h2>YOCOSO</h2>
+            </div>
+            <form class="theme-form" [formGroup]="loginForm" *ngIf="pageType === 'admin'">
+              <h4>Sign in to account</h4>
+              <p>Enter your email & password to login</p>
+              <div class="form-group">
+                <label class="col-form-label">Email Address</label>
+                <input class="form-control" type="email" required="" placeholder="app@yourmail.com" formControlName="email" />
+                <app-error-message [control]="loginForm.get('email')" [message]="{ required: 'Email is required', email: 'Invalid Email' }"> </app-error-message>
+              </div>
+              <div class="form-group">
+                <label class="col-form-label">Password</label>
+                <input class="form-control" [type]="show ? 'text' : 'password'" formControlName="password" required="" placeholder="*********" />
+                <div class="show-hide" (click)="showPassword()" *ngIf="!show"><span class="show"></span></div>
+                <div class="show-hide" (click)="showPassword()" *ngIf="show"><span class="Hide"></span></div>
+                <app-error-message [control]="loginForm.get('password')" [message]="{ required: 'Password is required' }"> </app-error-message>
+              </div>
+
+              <div class="form-group mb-0">
+                <button class="btn btn-primary d-block w-100" [class.loader--text]="authService.showLoader" [disabled]="!loginForm.valid || authService.showLoader" (click)="login()" type="button">
+                  <span>{{ authService.showLoader ? "" : "Login" }}</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

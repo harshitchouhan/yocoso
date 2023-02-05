@@ -1,0 +1,231 @@
+<app-home-header></app-home-header>
+
+<div class="container home">
+  <div class="row home-banner">
+    <div class="col-12">
+      <ngb-carousel *ngIf="images">
+        <ng-template ngbSlide *ngFor="let image of images">
+          <img [src]="image" alt="Random slide" class="w-100 home-banner--img" />
+        </ng-template>
+      </ngb-carousel>
+    </div>
+  </div>
+
+  <div class="row home-upcoming-exams">
+    <div class="col-12">
+      <h3>Upcoming Exams</h3>
+      <ngx-slick-carousel
+        class="carousel"
+        #slickModal="slick-carousel"
+        [config]="slideConfig"
+        (init)="slickInit($event)"
+        (breakpoint)="breakpoint($event)"
+        (afterChange)="afterChange($event)"
+        (beforeChange)="beforeChange($event)"
+      >
+        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+          <div class="home-upcoming-exams--container">
+            <div class="home-upcoming-exams--img-container">
+              <img src="{{ slide.img }}" alt="" width="100%" />
+            </div>
+            <p class="home-upcoming-exams--title">{{ slide.name }}</p>
+          </div>
+        </div>
+      </ngx-slick-carousel>
+    </div>
+  </div>
+
+  <div class="row home-exams-category">
+    <div class="col-12">
+      <h3 class="m-b-20">Choose Your Exam</h3>
+
+      <div class="home-exams-category--container">
+        <ngx-slick-carousel
+          class="carousel"
+          #slickModal="slick-carousel"
+          [config]="categorySlideConfig"
+          (init)="slickInit($event)"
+          (breakpoint)="breakpoint($event)"
+          (afterChange)="afterChange($event)"
+          (beforeChange)="beforeChange($event)"
+        >
+          <div ngxSlickItem *ngFor="let slide of categorySlides; let i = index" class="slide">
+            <button class="btn" [ngClass]="{ 'btn-primary': slide.isActive, 'btn-outline-primary': !slide.isActive }" [id]="'btn-' + i" (click)="onCategoryFilterChange(slide)">
+              {{ slide.name }}
+            </button>
+          </div>
+        </ngx-slick-carousel>
+
+        <div class="home-exams-category--exams" *ngIf="selectedCategoryExams.length > 0">
+          <div class="home-exams-category--exams-container" *ngFor="let exam of selectedCategoryExams; let i = index">
+            <div class="home-exams-category--exams-card">
+              <div class="home-exams-category--exams-container--img">
+                <img src="assets/images/slider/1.jpg" alt="Exam Image" />
+              </div>
+              <p class="m-0 f-w-400">{{ exam.name }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="home-exams-category--noexams" *ngIf="selectedCategoryExams.length === 0">
+          <h4>No exam available in this category</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row home-features">
+    <div class="col-12">
+      <h3 class="m-b-20">Why YesMock?</h3>
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-3 home-features--box">
+          <div class="icon-container">
+            <i class="icofont icofont-teacher"></i>
+          </div>
+          <h4>India's Top Faculty</h4>
+          <p>Learn from & Practice with Expert Faculty with years of experience in helping students crack their dream Govt Exam</p>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 home-features--box">
+          <div class="icon-container">
+            <i class="icofont icofont-read-book"></i>
+          </div>
+          <h4>Learn from the Best</h4>
+          <p>Learn from the masters of the subject, in the most engaging yet simplified ways</p>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 home-features--box">
+          <div class="icon-container">
+            <i class="icofont icofont-ui-video-play"></i>
+          </div>
+          <h4>Top Quality Content</h4>
+          <p>Created by Toppers and Experts in each category, course content follows Latest Exam Patterns</p>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 home-features--box">
+          <div class="icon-container">
+            <i class="icofont icofont-ui-video-play"></i>
+          </div>
+          <h4>Top Quality Content</h4>
+          <p>Created by Toppers and Experts in each category, course content follows Latest Exam Patterns</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row home-packages">
+    <h3 class="m-b-20">Our Packages</h3>
+
+    <div class="col-md-4 col-sm-6">
+      <div class="pricingtable">
+        <div class="pricingtable-header">
+          <h3 class="title">Bronze</h3>
+        </div>
+        <div class="price-value"><span class="currency">$</span><span class="amount">10</span><span class="duration">/mo</span></div>
+        <ul class="pricing-content">
+          <li>50GB Disk Space</li>
+          <li>50 Email Accounts</li>
+          <li>Maintenance</li>
+          <li>15 Subdomains</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <div class="pricingtable">
+        <div class="pricingtable-header">
+          <h3 class="title">Silver</h3>
+        </div>
+        <div class="price-value"><span class="currency">$</span><span class="amount">20</span><span class="duration">/mo</span></div>
+        <ul class="pricing-content">
+          <li>10% on all product</li>
+          <li>50 Email Accounts</li>
+          <li>Maintenance</li>
+          <li>15 Subdomains</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <div class="pricingtable">
+        <div class="pricingtable-header">
+          <h3 class="title">Gold</h3>
+        </div>
+        <div class="price-value"><span class="currency">$</span><span class="amount">50</span><span class="duration">/mo</span></div>
+        <ul class="pricing-content">
+          <li>Upload 50 product</li>
+          <li>50 Email Accounts</li>
+          <li>Maintenance</li>
+          <li>15 Subdomains</li>
+        </ul>
+      </div>
+    </div>
+    <!-- <div class="col-12">
+      
+      <div class="row pricingcontent">
+        
+      </div>
+    </div> -->
+  </div>
+
+  <div class="row home-posts">
+    <h3 class="m-b-20">Blogs</h3>
+    <div class="col-md-3 col-xl-3 box-col-6 xl-50">
+      <div class="card">
+        <div class="blog-box blog-grid text-center">
+          <img class="img-fluid top-radius-blog" src="assets/images/blog/blog-5.jpg" alt="" />
+          <div class="blog-details-main">
+            <ul class="blog-social">
+              <li class="digits">9 April 2022</li>
+              <li class="digits">0 Likes</li>
+            </ul>
+            <hr />
+            <h6 class="blog-bottom-details">Perspiciatis unde omnis iste natus error sit.Dummy text</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-xl-3 box-col-6 xl-50">
+      <div class="card">
+        <div class="blog-box blog-grid text-center">
+          <img class="img-fluid top-radius-blog" src="assets/images/blog/blog-6.jpg" alt="" />
+          <div class="blog-details-main">
+            <ul class="blog-social">
+              <li class="digits">9 April 2022</li>
+              <li class="digits">0 Likes</li>
+            </ul>
+            <hr />
+            <h6 class="blog-bottom-details">Perspiciatis unde omnis iste natus error sit.Dummy text</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-xl-3 box-col-6 xl-50">
+      <div class="card">
+        <div class="blog-box blog-grid text-center">
+          <img class="img-fluid top-radius-blog" src="assets/images/blog/blog-5.jpg" alt="" />
+          <div class="blog-details-main">
+            <ul class="blog-social">
+              <li class="digits">9 April 2022</li>
+              <li class="digits">0 Likes</li>
+            </ul>
+            <hr />
+            <h6 class="blog-bottom-details">Perspiciatis unde omnis iste natus error sit.Dummy text</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-xl-3 box-col-6 xl-50">
+      <div class="card">
+        <div class="blog-box blog-grid text-center">
+          <img class="img-fluid top-radius-blog" src="assets/images/blog/blog-6.jpg" alt="" />
+          <div class="blog-details-main">
+            <ul class="blog-social">
+              <li class="digits">9 April 2022</li>
+              <li class="digits">0 Likes</li>
+            </ul>
+            <hr />
+            <h6 class="blog-bottom-details">Perspiciatis unde omnis iste natus error sit.Dummy text</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-home-footer></app-home-footer>

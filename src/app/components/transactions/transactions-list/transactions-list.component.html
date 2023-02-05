@@ -1,0 +1,100 @@
+<app-breadcrumb [title]="'Transactions'" [items]="[]" [active_item]="'Transactions'"></app-breadcrumb>
+
+<!-- Container-fluid starts -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="p20-40 card-header">
+          <form class="form theme-form">
+            <div class="row">
+              <div class="col">
+                <div class="form-group row">
+                  <div class="col-lg-3 mb-3 mb-lg-0">
+                    <label for="exampleFormControlSelect9">Search:</label>
+                    <input class="form-control" type="text" placeholder="Search" />
+                  </div>
+
+                  <div class="offset-lg-7 col-lg-2">
+                    <label for="showEntries">Show Entries</label>
+                    <ng-select
+                      [items]="defaultBindingsList"
+                      [(ngModel)]="selectedEntries"
+                      class="custom-multi-select-border"
+                      placeholder="Select"
+                      [clearable]="false"
+                      [searchable]="false"
+                      (change)="onShowEntriesChange($event)"
+                    ></ng-select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-body custom-datatable">
+          <div class="custom-datatable table-responsive">
+            <table class="table">
+              <thead class="bg-primary">
+                <tr>
+                  <th scope="col">Sr No.</th>
+                  <th class="cursor" scope="col" sortable="transactionNumber" (sort)="onSort($event)">Trans. No.</th>
+                  <th class="cursor" scope="col" sortable="paymentGateway" (sort)="onSort($event)">Payment Gateway</th>
+                  <th class="cursor" scope="col" sortable="paymentMethod" (sort)="onSort($event)">Payment Method</th>
+                  <th class="cursor" scope="col" sortable="userName" (sort)="onSort($event)">Student Name</th>
+                  <th class="cursor" scope="col" sortable="amount" (sort)="onSort($event)">Amount</th>
+                  <th class="cursor" scope="col" sortable="package" (sort)="onSort($event)">Package</th>
+                  <th class="cursor" scope="col" sortable="status" (sort)="onSort($event)">Status</th>
+                  <th class="cursor" scope="col" sortable="date" (sort)="onSort($event)">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of tableItem$ | async; index as i">
+                  <td>
+                    {{ i + 1 }}
+                  </td>
+                  <td scope="row">
+                    {{ item.transactionNumber }}
+                  </td>
+                  <td>
+                    {{ item.paymentGateway }}
+                  </td>
+                  <td>
+                    {{ item.paymentMethod }}
+                  </td>
+                  <td>
+                    {{ item.userName }}
+                  </td>
+                  <td>Rs. {{ item.amount }}</td>
+                  <td>
+                    {{ item.package }}
+                  </td>
+                  <td>
+                    <span class="badge rounded-pill badge-success" *ngIf="item.status === 'success'">{{ item.status | uppercase }}</span>
+                    <span class="badge rounded-pill badge-danger" *ngIf="item.status === 'fail'">{{ item.status | uppercase }}</span>
+                  </td>
+                  <td>
+                    {{ item.date }}
+                  </td>
+                  <td>
+                    <!-- <button placement="top" ngbTooltip="View Details">
+                      <a [routerLink]="['/tests', i, 'view']"> <i class="fa fa-eye"></i></a>
+                    </button>
+                    <button placement="top" ngbTooltip="Edit">
+                      <a [routerLink]="['/tests', i, 'edit']"> <i class="fa fa-edit"></i></a>
+                    </button>
+                  </td> -->
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="d-flex justify-content-between p-2">
+              <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize"> </ngb-pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Container-fluid Ends -->

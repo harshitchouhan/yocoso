@@ -1,0 +1,928 @@
+<!-- <app-breadcrumb [title]="" [items]="[{ label: 'Questions', link: '/questions' }]" [active_item]="'Questions - ' + id"></app-breadcrumb> -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card card-absolute">
+        <div class="card-header bg-primary">
+          <h5 class="text-white">Set Details</h5>
+        </div>
+        <div class="card-body">
+          <div class="form-row">
+            <div class="col-md-3">
+              <label class="form-label" for="validationCustom01">Set Name</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Set Name" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-1 d-flex align-items-end">
+              <label class="col-form-label">&nbsp;</label>
+              <button class="btn btn-primary" type="submit">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card card-absolute">
+        <div class="card-header bg-primary">
+          <h5 class="text-white">Questions (Set 1)</h5>
+        </div>
+        <div class="card-header bg-primary card-header-buttons--show" (click)="show1 = !show1">
+          <h5 class="text-white">{{ !show1 ? "Hide" : "Show" }}</h5>
+        </div>
+        <div class="card-header bg-primary card-header-buttons--delete">
+          <h5 class="text-white">Delete</h5>
+        </div>
+        <div class="card-body">
+          <div class="form-row" [ngClass]="{ 'd-none': show1 }">
+            <div class="col-md-12 mb-3">
+              <label class="form-label" for="validationCustom01">Question:</label>
+              <textarea class="form-control" rows="2" placeholder="Question"></textarea>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 1</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 1" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 2</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 2" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 3</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 3" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 4</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 4" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 5</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 5" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 6</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 6" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 7</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 7" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 8</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 8" required="" onlyAlphabets />
+            </div>
+
+            <div class="col-md-3">
+              <label class="form-label" for="validationCustom01">Correct Answers</label>
+              <ng-select [items]="defaultBindingsList" class="custom-multi-select-border" [(ngModel)]="multipleSelectedCity" [multiple]="false" placeholder="Select"></ng-select>
+            </div>
+
+            <div class="col-md-1">
+              <label class="col-form-label m-r-10">Active</label>
+              <div class="media-body text-start icon-state">
+                <label class="switch"> <input type="checkbox" checked="" /><span class="switch-state"></span> </label>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-group">
+                <label>Link of Video Solution:</label>
+                <input class="form-control" id="validationCustom01" type="url" placeholder="Link of Video Solution" required="" onlyAlphabets />
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-group">
+                <label>Solution:</label>
+                <ckeditor [editor]="ClassicEditor" data="<p>Hello, world!</p>"></ckeditor>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-group">
+                <label>PDF Solution:</label>
+                <ngx-dropzone (change)="onSelect($event)">
+                  <ngx-dropzone-label>
+                    <div class="dz-message needsclick">
+                      <i class="icon-cloud-up"></i>
+                      <h6>Drop files here or click to upload.</h6>
+                    </div>
+                  </ngx-dropzone-label>
+                  <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                  </ngx-dropzone-preview>
+                </ngx-dropzone>
+              </div>
+            </div>
+
+            <div class="col-md-2 mb-3">
+              <button class="btn btn-primary mt-3" type="submit">Add Question</button>
+            </div>
+
+            <div class="col-12">
+              <ngb-accordion [closeOthers]="true">
+                <ngb-panel id="static-1" title="">
+                  <ng-template ngbPanelHeader let-opened="opened">
+                    <div [class.collapsed]="!opened" class="accordian-header">
+                      <button ngbPanelToggle class="accordion-button">1. What is the exam Eligibility?</button>
+                      <button class="btn btn-link py-0 px-1 mr-3 accordian-delete-btn" [style]="{ fontSize: '20px' }"><i class="icofont icofont-ui-delete"></i></button>
+                      <button class="btn btn-link py-0 px-1 mr-3 accordian-edit-btn" [style]="{ fontSize: '20px' }"><i class="icofont icofont-ui-edit"></i></button>
+                    </div>
+                  </ng-template>
+
+                  <ng-template ngbPanelContent>
+                    <div class="form-row">
+                      <div class="col-md-12 mb-3">
+                        <label class="form-label" for="validationCustom01">Question:</label>
+                        <textarea class="form-control" rows="2" placeholder="Question"></textarea>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 1</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 1" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 2</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 2" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 3</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 3" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 4</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 4" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 5</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 5" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 6</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 6" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 7</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 7" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 8</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 8" required="" onlyAlphabets />
+                      </div>
+
+                      <div class="col-md-3">
+                        <label class="form-label" for="validationCustom01">Correct Answers</label>
+                        <ng-select [items]="defaultBindingsList" class="custom-multi-select-border" [(ngModel)]="multipleSelectedCity" [multiple]="false" placeholder="Select"></ng-select>
+                      </div>
+
+                      <div class="col-md-1">
+                        <label class="col-form-label m-r-10">Active</label>
+                        <div class="media-body text-start icon-state">
+                          <label class="switch"> <input type="checkbox" checked="" /><span class="switch-state"></span> </label>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>Link of Video Solution:</label>
+                          <input class="form-control" id="validationCustom01" type="url" placeholder="Link of Video Solution" required="" onlyAlphabets />
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>Solution:</label>
+                          <ckeditor [editor]="ClassicEditor" data="<p>Hello, world!</p>"></ckeditor>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>PDF Solution:</label>
+                          <ngx-dropzone (change)="onSelect($event)">
+                            <ngx-dropzone-label>
+                              <div class="dz-message needsclick">
+                                <i class="icon-cloud-up"></i>
+                                <h6>Drop files here or click to upload.</h6>
+                              </div>
+                            </ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                              <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                          </ngx-dropzone>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-template>
+                </ngb-panel>
+                <ngb-panel id="static-2">
+                  <ng-template ngbPanelHeader let-opened="opened">
+                    <div [class.collapsed]="!opened" class="accordian-header">
+                      <button ngbPanelToggle class="accordion-button">2. What is the exam Date?</button>
+                      <button class="btn btn-link py-0 px-1 mr-3 accordian-delete-btn" [style]="{ fontSize: '20px' }"><i class="icofont icofont-ui-delete"></i></button>
+                      <button class="btn btn-link py-0 px-1 mr-3 accordian-edit-btn" [style]="{ fontSize: '20px' }"><i class="icofont icofont-ui-edit"></i></button>
+                    </div>
+                  </ng-template>
+
+                  <ng-template ngbPanelContent>
+                    <div class="form-row">
+                      <div class="col-md-12 mb-3">
+                        <label class="form-label" for="validationCustom01">Question:</label>
+                        <textarea class="form-control" rows="2" placeholder="Question"></textarea>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 1</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 1" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 2</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 2" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 3</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 3" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 4</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 4" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 5</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 5" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 6</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 6" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 7</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 7" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 8</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 8" required="" onlyAlphabets />
+                      </div>
+
+                      <div class="col-md-3">
+                        <label class="form-label" for="validationCustom01">Correct Answers</label>
+                        <ng-select [items]="defaultBindingsList" class="custom-multi-select-border" [(ngModel)]="multipleSelectedCity" [multiple]="false" placeholder="Select"></ng-select>
+                      </div>
+
+                      <div class="col-md-1">
+                        <label class="col-form-label m-r-10">Active</label>
+                        <div class="media-body text-start icon-state">
+                          <label class="switch"> <input type="checkbox" checked="" /><span class="switch-state"></span> </label>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>Link of Video Solution:</label>
+                          <input class="form-control" id="validationCustom01" type="url" placeholder="Link of Video Solution" required="" onlyAlphabets />
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>Solution:</label>
+                          <ckeditor [editor]="ClassicEditor" data="<p>Hello, world!</p>"></ckeditor>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>PDF Solution:</label>
+                          <ngx-dropzone (change)="onSelect($event)">
+                            <ngx-dropzone-label>
+                              <div class="dz-message needsclick">
+                                <i class="icon-cloud-up"></i>
+                                <h6>Drop files here or click to upload.</h6>
+                              </div>
+                            </ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                              <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                          </ngx-dropzone>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-template>
+                </ngb-panel>
+              </ngb-accordion>
+            </div>
+
+            <div class="col-md-2 mb-3">
+              <button class="btn btn-primary mt-3" type="submit">Submit</button>
+            </div>
+          </div>
+          <div [ngClass]="{ 'd-none': !show1 }">
+            <p class="text-center">Click on show to see complete details</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card card-absolute">
+        <div class="card-header bg-primary">
+          <h5 class="text-white">Questions (Set 2)</h5>
+        </div>
+        <div class="card-header bg-primary card-header-buttons--show" (click)="show2 = !show2">
+          <h5 class="text-white">{{ !show2 ? "Hide" : "Show" }}</h5>
+        </div>
+        <div class="card-header bg-primary card-header-buttons--delete">
+          <h5 class="text-white">Delete</h5>
+        </div>
+        <div class="card-body">
+          <div class="form-row" [ngClass]="{ 'd-none': show2 }">
+            <div class="col-md-12 mb-3">
+              <label class="form-label" for="validationCustom01">Question:</label>
+              <textarea class="form-control" rows="2" placeholder="Question"></textarea>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 1</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 1" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 2</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 2" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 3</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 3" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 4</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 4" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 5</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 5" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 6</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 6" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 7</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 7" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 8</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 8" required="" onlyAlphabets />
+            </div>
+
+            <div class="col-md-3">
+              <label class="form-label" for="validationCustom01">Correct Answers</label>
+              <ng-select [items]="defaultBindingsList" class="custom-multi-select-border" [(ngModel)]="multipleSelectedCity" [multiple]="false" placeholder="Select"></ng-select>
+            </div>
+
+            <div class="col-md-1">
+              <label class="col-form-label m-r-10">Active</label>
+              <div class="media-body text-start icon-state">
+                <label class="switch"> <input type="checkbox" checked="" /><span class="switch-state"></span> </label>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-group">
+                <label>Link of Video Solution:</label>
+                <input class="form-control" id="validationCustom01" type="url" placeholder="Link of Video Solution" required="" onlyAlphabets />
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-group">
+                <label>Solution:</label>
+                <ckeditor [editor]="ClassicEditor" data="<p>Hello, world!</p>"></ckeditor>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-group">
+                <label>PDF Solution:</label>
+                <ngx-dropzone (change)="onSelect($event)">
+                  <ngx-dropzone-label>
+                    <div class="dz-message needsclick">
+                      <i class="icon-cloud-up"></i>
+                      <h6>Drop files here or click to upload.</h6>
+                    </div>
+                  </ngx-dropzone-label>
+                  <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                  </ngx-dropzone-preview>
+                </ngx-dropzone>
+              </div>
+            </div>
+
+            <div class="col-md-2 mb-3">
+              <button class="btn btn-primary mt-3" type="submit">Add Question</button>
+            </div>
+
+            <div class="col-12">
+              <ngb-accordion [closeOthers]="true">
+                <ngb-panel id="static-1" title="">
+                  <ng-template ngbPanelHeader let-opened="opened">
+                    <div [class.collapsed]="!opened" class="accordian-header">
+                      <button ngbPanelToggle class="accordion-button">1. What is the exam Eligibility?</button>
+                      <button class="btn btn-link py-0 px-1 mr-3 accordian-delete-btn" [style]="{ fontSize: '20px' }"><i class="icofont icofont-ui-delete"></i></button>
+                      <button class="btn btn-link py-0 px-1 mr-3 accordian-edit-btn" [style]="{ fontSize: '20px' }"><i class="icofont icofont-ui-edit"></i></button>
+                    </div>
+                  </ng-template>
+
+                  <ng-template ngbPanelContent>
+                    <div class="form-row">
+                      <div class="col-md-12 mb-3">
+                        <label class="form-label" for="validationCustom01">Question:</label>
+                        <textarea class="form-control" rows="2" placeholder="Question"></textarea>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 1</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 1" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 2</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 2" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 3</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 3" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 4</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 4" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 5</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 5" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 6</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 6" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 7</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 7" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 8</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 8" required="" onlyAlphabets />
+                      </div>
+
+                      <div class="col-md-3">
+                        <label class="form-label" for="validationCustom01">Correct Answers</label>
+                        <ng-select [items]="defaultBindingsList" class="custom-multi-select-border" [(ngModel)]="multipleSelectedCity" [multiple]="false" placeholder="Select"></ng-select>
+                      </div>
+
+                      <div class="col-md-1">
+                        <label class="col-form-label m-r-10">Active</label>
+                        <div class="media-body text-start icon-state">
+                          <label class="switch"> <input type="checkbox" checked="" /><span class="switch-state"></span> </label>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>Link of Video Solution:</label>
+                          <input class="form-control" id="validationCustom01" type="url" placeholder="Link of Video Solution" required="" onlyAlphabets />
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>Solution:</label>
+                          <ckeditor [editor]="ClassicEditor" data="<p>Hello, world!</p>"></ckeditor>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>PDF Solution:</label>
+                          <ngx-dropzone (change)="onSelect($event)">
+                            <ngx-dropzone-label>
+                              <div class="dz-message needsclick">
+                                <i class="icon-cloud-up"></i>
+                                <h6>Drop files here or click to upload.</h6>
+                              </div>
+                            </ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                              <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                          </ngx-dropzone>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-template>
+                </ngb-panel>
+                <ngb-panel id="static-2">
+                  <ng-template ngbPanelHeader let-opened="opened">
+                    <div [class.collapsed]="!opened" class="accordian-header">
+                      <button ngbPanelToggle class="accordion-button">2. What is the exam Date?</button>
+                      <button class="btn btn-link py-0 px-1 mr-3 accordian-delete-btn" [style]="{ fontSize: '20px' }"><i class="icofont icofont-ui-delete"></i></button>
+                      <button class="btn btn-link py-0 px-1 mr-3 accordian-edit-btn" [style]="{ fontSize: '20px' }"><i class="icofont icofont-ui-edit"></i></button>
+                    </div>
+                  </ng-template>
+
+                  <ng-template ngbPanelContent>
+                    <div class="form-row">
+                      <div class="col-md-12 mb-3">
+                        <label class="form-label" for="validationCustom01">Question:</label>
+                        <textarea class="form-control" rows="2" placeholder="Question"></textarea>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 1</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 1" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 2</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 2" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 3</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 3" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 4</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 4" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 5</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 5" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 6</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 6" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 7</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 7" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 8</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 8" required="" onlyAlphabets />
+                      </div>
+
+                      <div class="col-md-3">
+                        <label class="form-label" for="validationCustom01">Correct Answers</label>
+                        <ng-select [items]="defaultBindingsList" class="custom-multi-select-border" [(ngModel)]="multipleSelectedCity" [multiple]="false" placeholder="Select"></ng-select>
+                      </div>
+
+                      <div class="col-md-1">
+                        <label class="col-form-label m-r-10">Active</label>
+                        <div class="media-body text-start icon-state">
+                          <label class="switch"> <input type="checkbox" checked="" /><span class="switch-state"></span> </label>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>Link of Video Solution:</label>
+                          <input class="form-control" id="validationCustom01" type="url" placeholder="Link of Video Solution" required="" onlyAlphabets />
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>Solution:</label>
+                          <ckeditor [editor]="ClassicEditor" data="<p>Hello, world!</p>"></ckeditor>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>PDF Solution:</label>
+                          <ngx-dropzone (change)="onSelect($event)">
+                            <ngx-dropzone-label>
+                              <div class="dz-message needsclick">
+                                <i class="icon-cloud-up"></i>
+                                <h6>Drop files here or click to upload.</h6>
+                              </div>
+                            </ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                              <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                          </ngx-dropzone>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-template>
+                </ngb-panel>
+              </ngb-accordion>
+            </div>
+
+            <div class="col-md-2 mb-3">
+              <button class="btn btn-primary mt-3" type="submit">Submit</button>
+            </div>
+          </div>
+          <div [ngClass]="{ 'd-none': !show2 }">
+            <p class="text-center">Click on show to see complete details</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card card-absolute">
+        <div class="card-header bg-primary">
+          <h5 class="text-white">Questions (Set 3)</h5>
+        </div>
+        <div class="card-header bg-primary card-header-buttons--show" (click)="show3 = !show3">
+          <h5 class="text-white">{{ !show3 ? "Hide" : "Show" }}</h5>
+        </div>
+        <div class="card-header bg-primary card-header-buttons--delete">
+          <h5 class="text-white">Delete</h5>
+        </div>
+        <div class="card-body">
+          <div class="form-row" [ngClass]="{ 'd-none': show3 }">
+            <div class="col-md-12 mb-3">
+              <label class="form-label" for="validationCustom01">Question:</label>
+              <textarea class="form-control" rows="2" placeholder="Question"></textarea>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 1</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 1" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 2</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 2" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 3</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 3" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 4</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 4" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 5</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 5" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 6</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 6" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 7</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 7" required="" onlyAlphabets />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="validationCustom01">Option 8</label>
+              <input class="form-control" id="validationCustom01" type="text" placeholder="Option 8" required="" onlyAlphabets />
+            </div>
+
+            <div class="col-md-3">
+              <label class="form-label" for="validationCustom01">Correct Answers</label>
+              <ng-select [items]="defaultBindingsList" class="custom-multi-select-border" [(ngModel)]="multipleSelectedCity" [multiple]="false" placeholder="Select"></ng-select>
+            </div>
+
+            <div class="col-md-1">
+              <label class="col-form-label m-r-10">Active</label>
+              <div class="media-body text-start icon-state">
+                <label class="switch"> <input type="checkbox" checked="" /><span class="switch-state"></span> </label>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-group">
+                <label>Link of Video Solution:</label>
+                <input class="form-control" id="validationCustom01" type="url" placeholder="Link of Video Solution" required="" onlyAlphabets />
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-group">
+                <label>Solution:</label>
+                <ckeditor [editor]="ClassicEditor" data="<p>Hello, world!</p>"></ckeditor>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-group">
+                <label>PDF Solution:</label>
+                <ngx-dropzone (change)="onSelect($event)">
+                  <ngx-dropzone-label>
+                    <div class="dz-message needsclick">
+                      <i class="icon-cloud-up"></i>
+                      <h6>Drop files here or click to upload.</h6>
+                    </div>
+                  </ngx-dropzone-label>
+                  <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                  </ngx-dropzone-preview>
+                </ngx-dropzone>
+              </div>
+            </div>
+
+            <div class="col-md-2 mb-3">
+              <button class="btn btn-primary mt-3" type="submit">Add Question</button>
+            </div>
+
+            <div class="col-12">
+              <ngb-accordion [closeOthers]="true">
+                <ngb-panel id="static-1" title="">
+                  <ng-template ngbPanelHeader let-opened="opened">
+                    <div [class.collapsed]="!opened" class="accordian-header">
+                      <button ngbPanelToggle class="accordion-button">1. What is the exam Eligibility?</button>
+                      <button class="btn btn-link py-0 px-1 mr-3 accordian-delete-btn" [style]="{ fontSize: '20px' }"><i class="icofont icofont-ui-delete"></i></button>
+                      <button class="btn btn-link py-0 px-1 mr-3 accordian-edit-btn" [style]="{ fontSize: '20px' }"><i class="icofont icofont-ui-edit"></i></button>
+                    </div>
+                  </ng-template>
+
+                  <ng-template ngbPanelContent>
+                    <div class="form-row">
+                      <div class="col-md-12 mb-3">
+                        <label class="form-label" for="validationCustom01">Question:</label>
+                        <textarea class="form-control" rows="2" placeholder="Question"></textarea>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 1</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 1" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 2</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 2" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 3</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 3" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 4</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 4" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 5</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 5" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 6</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 6" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 7</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 7" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 8</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 8" required="" onlyAlphabets />
+                      </div>
+
+                      <div class="col-md-3">
+                        <label class="form-label" for="validationCustom01">Correct Answers</label>
+                        <ng-select [items]="defaultBindingsList" class="custom-multi-select-border" [(ngModel)]="multipleSelectedCity" [multiple]="false" placeholder="Select"></ng-select>
+                      </div>
+
+                      <div class="col-md-1">
+                        <label class="col-form-label m-r-10">Active</label>
+                        <div class="media-body text-start icon-state">
+                          <label class="switch"> <input type="checkbox" checked="" /><span class="switch-state"></span> </label>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>Link of Video Solution:</label>
+                          <input class="form-control" id="validationCustom01" type="url" placeholder="Link of Video Solution" required="" onlyAlphabets />
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>Solution:</label>
+                          <ckeditor [editor]="ClassicEditor" data="<p>Hello, world!</p>"></ckeditor>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>PDF Solution:</label>
+                          <ngx-dropzone (change)="onSelect($event)">
+                            <ngx-dropzone-label>
+                              <div class="dz-message needsclick">
+                                <i class="icon-cloud-up"></i>
+                                <h6>Drop files here or click to upload.</h6>
+                              </div>
+                            </ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                              <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                          </ngx-dropzone>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-template>
+                </ngb-panel>
+                <ngb-panel id="static-2">
+                  <ng-template ngbPanelHeader let-opened="opened">
+                    <div [class.collapsed]="!opened" class="accordian-header">
+                      <button ngbPanelToggle class="accordion-button">2. What is the exam Date?</button>
+                      <button class="btn btn-link py-0 px-1 mr-3 accordian-delete-btn" [style]="{ fontSize: '20px' }"><i class="icofont icofont-ui-delete"></i></button>
+                      <button class="btn btn-link py-0 px-1 mr-3 accordian-edit-btn" [style]="{ fontSize: '20px' }"><i class="icofont icofont-ui-edit"></i></button>
+                    </div>
+                  </ng-template>
+
+                  <ng-template ngbPanelContent>
+                    <div class="form-row">
+                      <div class="col-md-12 mb-3">
+                        <label class="form-label" for="validationCustom01">Question:</label>
+                        <textarea class="form-control" rows="2" placeholder="Question"></textarea>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 1</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 1" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 2</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 2" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 3</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 3" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 4</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 4" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 5</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 5" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 6</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 6" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 7</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 7" required="" onlyAlphabets />
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-label" for="validationCustom01">Option 8</label>
+                        <input class="form-control" id="validationCustom01" type="text" placeholder="Option 8" required="" onlyAlphabets />
+                      </div>
+
+                      <div class="col-md-3">
+                        <label class="form-label" for="validationCustom01">Correct Answers</label>
+                        <ng-select [items]="defaultBindingsList" class="custom-multi-select-border" [(ngModel)]="multipleSelectedCity" [multiple]="false" placeholder="Select"></ng-select>
+                      </div>
+
+                      <div class="col-md-1">
+                        <label class="col-form-label m-r-10">Active</label>
+                        <div class="media-body text-start icon-state">
+                          <label class="switch"> <input type="checkbox" checked="" /><span class="switch-state"></span> </label>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>Link of Video Solution:</label>
+                          <input class="form-control" id="validationCustom01" type="url" placeholder="Link of Video Solution" required="" onlyAlphabets />
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>Solution:</label>
+                          <ckeditor [editor]="ClassicEditor" data="<p>Hello, world!</p>"></ckeditor>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>PDF Solution:</label>
+                          <ngx-dropzone (change)="onSelect($event)">
+                            <ngx-dropzone-label>
+                              <div class="dz-message needsclick">
+                                <i class="icon-cloud-up"></i>
+                                <h6>Drop files here or click to upload.</h6>
+                              </div>
+                            </ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                              <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                          </ngx-dropzone>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-template>
+                </ngb-panel>
+              </ngb-accordion>
+            </div>
+
+            <div class="col-md-2 mb-3">
+              <button class="btn btn-primary mt-3" type="submit">Submit</button>
+            </div>
+          </div>
+          <div [ngClass]="{ 'd-none': !show3 }">
+            <p class="text-center">Click on show to see complete details</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

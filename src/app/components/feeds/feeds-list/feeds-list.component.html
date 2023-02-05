@@ -1,0 +1,107 @@
+<app-breadcrumb [title]="'Feeds'" [items]="[]" [active_item]="'Feeds'"></app-breadcrumb>
+
+<!-- Container-fluid starts -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="p20-40 card-header">
+          <form class="form theme-form">
+            <div class="row">
+              <div class="col">
+                <div class="form-group row">
+                  <div class="col-lg-3 mb-3 mb-lg-0">
+                    <label for="exampleFormControlSelect9">Search:</label>
+                    <input class="form-control" type="text" placeholder="Search" />
+                  </div>
+
+                  <div class="col-lg-3 align-items-end mb-3 mb-lg-0 d-none d-lg-flex">
+                    <label for="showEntries">&nbsp;</label>
+                    <button class="btn btn-primary" type="button" placement="top" ngbTooltip="Add Feed">
+                      <a class="font-light" [routerLink]="['/feeds', 'add']"> Add Feed</a>
+                    </button>
+                  </div>
+
+                  <div class="offset-lg-2 col-lg-2 mb-3 mb-lg-0">
+                    <label for="showEntries">Status</label>
+                    <ng-select [items]="defaultBindingsList2" class="custom-multi-select-border" placeholder="Select" [clearable]="false" [searchable]="false"></ng-select>
+                  </div>
+                  <div class="col-lg-2 mb-3 mb-lg-0">
+                    <label for="showEntries">Show Entries</label>
+                    <ng-select
+                      [items]="defaultBindingsList"
+                      [(ngModel)]="selectedEntries"
+                      class="custom-multi-select-border"
+                      placeholder="Select"
+                      [clearable]="false"
+                      [searchable]="false"
+                      (change)="onShowEntriesChange($event)"
+                    ></ng-select>
+                  </div>
+
+                  <div class="col-lg-3 align-items-end d-lg-none d-flex">
+                    <label for="showEntries">&nbsp;</label>
+                    <button class="btn btn-primary" type="button" placement="top" ngbTooltip="Add Feed">
+                      <a class="font-light" [routerLink]="['/feeds', 'add']"> Add Feed</a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-body custom-datatable">
+          <div class="custom-datatable table-responsive">
+            <table class="table">
+              <thead class="bg-primary">
+                <tr>
+                  <th scope="col">Sr No.</th>
+                  <th class="cursor" scope="col" sortable="title" (sort)="onSort($event)">Title</th>
+                  <th class="cursor" scope="col" sortable="likes" (sort)="onSort($event)">Likes</th>
+                  <th class="cursor" scope="col" sortable="status" (sort)="onSort($event)">Status</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of tableItem$ | async; index as i">
+                  <td>
+                    {{ i + 1 }}
+                  </td>
+                  <td scope="row">
+                    {{ item.title }}
+                  </td>
+                  <td>
+                    <div class="customers d-inline-block avatar-group">
+                      <ul>
+                        <li class="d-inline-block"><img class="img-40 rounded-circle" src="assets/images/user/3.jpg" alt="" /></li>
+                        <li class="d-inline-block"><img class="img-40 rounded-circle" src="assets/images/user/5.jpg" alt="" /></li>
+                        <li class="d-inline-block"><img class="img-40 rounded-circle" src="assets/images/user/6.jpg" alt="" /></li>
+                      </ul>
+                    </div>
+                    {{ item.likes }}
+                  </td>
+                  <td>
+                    <span class="badge rounded-pill badge-success" *ngIf="item.status === 'Active'">{{ item.status }}</span>
+                    <span class="badge rounded-pill badge-danger" *ngIf="item.status === 'Inactive'">{{ item.status }}</span>
+                  </td>
+                  <td>
+                    <button placement="top" ngbTooltip="View Details">
+                      <a [routerLink]="['/feeds', i, 'view']"> <i class="fa fa-eye"></i></a>
+                    </button>
+                    <button placement="top" ngbTooltip="Edit">
+                      <a [routerLink]="['/feeds', i, 'edit']"> <i class="fa fa-edit"></i></a>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="d-flex justify-content-between p-2">
+              <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize"> </ngb-pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Container-fluid Ends -->
