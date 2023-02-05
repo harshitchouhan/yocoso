@@ -23,7 +23,6 @@
                       <option [ngValue]="30">30 rows / page</option>
                       <option [ngValue]="50">50 rows / page</option>
                     </select>
-                    
                   </div>
                 </div>
               </div>
@@ -65,7 +64,7 @@
                     <ngb-highlight [result]="item.status | uppercase" [term]="service.searchTerm"></ngb-highlight>
                   </td>
                   <td>
-                    <button placement="top" ngbTooltip="View Details">
+                    <button type="button" [routerLink]="['/customer-details', item.id]" placement="top" ngbTooltip="View Details">
                       <i class="fa fa-eye"></i>
                     </button>
                   </td>
