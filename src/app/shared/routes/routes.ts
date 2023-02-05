@@ -38,6 +38,10 @@ export const content: Routes = [
     loadChildren: () => import("../../components/insurance-management/insurance-management.module").then((m) => m.InsuranceManagementModule),
   },
   {
+    path: "services",
+    loadChildren: () => import("../../components/services/services.module").then((m) => m.ServicesModule),
+  },
+  {
     path: "students",
     loadChildren: () => import("../../components/students/students.module").then((m) => m.StudentsModule),
   },

@@ -1,0 +1,79 @@
+<app-breadcrumb [title]="'Service Types'" [items]="[]" [active_item]="'Service Types'"></app-breadcrumb>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header p1-25">
+          <form class="form theme-form">
+            <div class="row">
+              <div class="col">
+                <div class="row">
+                  <div class="col-lg-3 mb-3 mb-lg-0">
+                    <label for="exampleFormControlSelect9">Search:</label>
+                    <input class="form-control" type="text" placeholder="Search" (input)="handleTextChange($event)" />
+                  </div>
+
+                  <div class="offset-lg-7 col-lg-2">
+                    <label for="showEntries">Show Entries</label>
+                    <select class="form-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+                      <option [ngValue]="5">5 rows / page</option>
+                      <option [ngValue]="10">10 rows / page</option>
+                      <option [ngValue]="20">20 rows / page</option>
+                      <option [ngValue]="30">30 rows / page</option>
+                      <option [ngValue]="50">50 rows / page</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-body custom-datatable">
+          <div class="custom-datatable table-responsive">
+            <table class="table">
+              <thead class="bg-primary">
+                <tr>
+                  <th scope="col">Sr No.</th>
+                  <th class="cursor" scope="col" sortable="name" (sort)="onSort($event)">Name</th>
+                  <th class="cursor" scope="col" sortable="status" (sort)="onSort($event)">Status</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of tableItem$ | async; index as i">
+                  <td>
+                    {{ service.pageSize * (service.page - 1) + i + 1 }}
+                  </td>
+                  <td>
+                    <ngb-highlight [result]="item.name" [term]="service.searchTerm"></ngb-highlight>
+                  </td>
+                  <td>
+                    <ngb-highlight [result]="item.status | uppercase" [term]="service.searchTerm"></ngb-highlight>
+                  </td>
+                  <td>
+                    <button placement="top" ngbTooltip="View Details">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    <button placement="top" ngbTooltip="Edit">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button placement="top" ngbTooltip="Delete">
+                      <i class="fa fa-trash-o"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="d-flex justify-content-between p-2">
+              <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize" [maxSize]="3" [rotate]="true">
+                <ng-template ngbPaginationPrevious>Prev</ng-template>
+                <ng-template ngbPaginationNext>Next</ng-template>
+              </ngb-pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
