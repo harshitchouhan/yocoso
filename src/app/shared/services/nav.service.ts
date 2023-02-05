@@ -105,6 +105,14 @@ export class NavService implements OnDestroy {
       bookmark: true,
     },
     {
+      path: "/customer-management",
+      title: "Customer Management",
+      icon: "users",
+      type: "link",
+      active: false,
+      bookmark: true,
+    },
+    {
       path: "/user-management",
       title: "User Management",
       icon: "users",

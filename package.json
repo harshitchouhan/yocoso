@@ -65,6 +65,7 @@
     "knob": "^1.1.0",
     "leaflet": "^1.8.0",
     "masonry-layout": "^4.2.2",
+    "moment": "^2.29.4",
     "mousetrap": "^1.6.5",
     "ng-apexcharts": "^1.7.1",
     "ng-chartist": "^6.8.1",

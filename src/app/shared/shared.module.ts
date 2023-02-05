@@ -37,6 +37,8 @@ import { NavService } from "./services/nav.service";
 import { TableService } from "./services/table.service";
 import { NgbdSortableHeader } from "./directives/NgbdSortableHeader";
 import { DecimalPipe } from "@angular/common";
+import { PageWrapperComponent } from './components/page-wrapper/page-wrapper.component';
+import { NgSelectModule } from "@ng-select/ng-select";
 
 @NgModule({
   declarations: [
@@ -63,8 +65,9 @@ import { DecimalPipe } from "@angular/common";
     MessageBoxComponent,
     MyAccountComponent,
     NgbdSortableHeader,
+    PageWrapperComponent,
   ],
-  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, NgbModule, DragulaModule.forRoot(), TranslateModule.forRoot()],
+  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, NgbModule, DragulaModule.forRoot(), TranslateModule.forRoot(), NgSelectModule],
   providers: [NavService, ChatService, LayoutService, TableService, DecimalPipe],
   exports: [
     NgbModule,
@@ -79,6 +82,7 @@ import { DecimalPipe } from "@angular/common";
     OnlyAlphabetsDirective,
     OnlyNumbersDirective,
     NgbdSortableHeader,
+    NgSelectModule
   ],
 })
 export class SharedModule {}

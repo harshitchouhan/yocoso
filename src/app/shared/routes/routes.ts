@@ -10,6 +10,10 @@ export const content: Routes = [
     loadChildren: () => import("../../components/dashboard/dashboard.module").then((m) => m.DashboardModule),
   },
   {
+    path: "customer-management",
+    loadChildren: () => import("../../components/customer-management/customer-management.module").then((m) => m.CustomerManagementModule),
+  },
+  {
     path: "user-management",
     loadChildren: () => import("../../components/user-management/user-management.module").then((m) => m.UserManagementModule),
   },
