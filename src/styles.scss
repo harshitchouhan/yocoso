@@ -72,10 +72,6 @@ th[sortable].desc:before {
   color: $primary-color;
 }
 
-.form-control:focus {
-  box-shadow: none;
-}
-
 .ngb-highlight {
   background-color: #ff0;
 }
@@ -85,7 +81,8 @@ th[sortable].desc:before {
   border-color: #86b7fe;
 }
 
-.form-select:focus {
+.form-select:focus,
+.form-control:focus {
   box-shadow: none;
   border-color: #86b7fe;
 }
