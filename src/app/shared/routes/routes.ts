@@ -81,6 +81,10 @@ export const content: Routes = [
     path: "services",
     loadChildren: () => import("../../components/services/services.module").then((m) => m.ServicesModule),
   },
+  // {
+  //   path: "services/types/add",
+  //   loadChildren: () => import("../../components/service-types-details/service-types-details.module").then((m) => m.ServiceTypesDetailsModule),
+  // },
   {
     path: "students",
     loadChildren: () => import("../../components/students/students.module").then((m) => m.StudentsModule),

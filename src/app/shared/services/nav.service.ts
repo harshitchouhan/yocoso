@@ -169,6 +169,7 @@ export class NavService implements OnDestroy {
       icon: "truck",
       type: "sub",
       active: false,
+      nestedLinks: ["services"],
       children: [
         { path: "/services/types", title: "Types", type: "link" },
         { path: "/services/all", title: "Services", type: "link" },

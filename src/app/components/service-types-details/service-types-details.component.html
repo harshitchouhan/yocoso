@@ -1,0 +1,32 @@
+<app-breadcrumb [title]="'Service Type'" [items]="[{ label: 'Service Types', link: '/services/types' }]" [active_item]="id ? 'Service Type - ' + id : 'Add Service Type'"></app-breadcrumb>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="col-form-label pt-0">Name</label>
+                <input class="form-control" type="text" />
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="media">
+                <label class="col-form-label m-r-10">Active</label>
+                <div class="media-body text-end icon-state" style="flex: unset">
+                  <label class="switch"> <input type="checkbox" checked="" /><span class="switch-state"></span> </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer" *ngIf="pageType !== 'View'">
+          <button *ngIf="pageType === 'Add'" type="btn" class="btn btn-success">Save</button>
+          <button *ngIf="pageType === 'Edit'" type="btn" class="btn btn-success">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
