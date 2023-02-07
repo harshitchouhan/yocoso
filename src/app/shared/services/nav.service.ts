@@ -120,6 +120,7 @@ export class NavService implements OnDestroy {
       type: "link",
       active: false,
       bookmark: true,
+      nestedLinks: ["user", "user-details"],
     },
     {
       path: "/routes-management",
@@ -128,6 +129,7 @@ export class NavService implements OnDestroy {
       type: "link",
       active: false,
       bookmark: true,
+      nestedLinks: ["route", "route-details"],
     },
     {
       path: "/orders-management",

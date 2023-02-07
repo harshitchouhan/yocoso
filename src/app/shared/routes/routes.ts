@@ -38,6 +38,18 @@ export const content: Routes = [
     loadChildren: () => import("../../components/route-management/route-management.module").then((m) => m.RouteManagementModule),
   },
   {
+    path: "route-details/edit/:id",
+    loadChildren: () => import("../../components/routes-details/routes-details.module").then((m) => m.RoutesDetailsModule),
+  },
+  {
+    path: "route-details/view/:id",
+    loadChildren: () => import("../../components/routes-details/routes-details.module").then((m) => m.RoutesDetailsModule),
+  },
+  {
+    path: "route/add",
+    loadChildren: () => import("../../components/routes-details/routes-details.module").then((m) => m.RoutesDetailsModule),
+  },
+  {
     path: "orders-management",
     loadChildren: () => import("../../components/orders-management/orders-management.module").then((m) => m.OrdersManagementModule),
   },
