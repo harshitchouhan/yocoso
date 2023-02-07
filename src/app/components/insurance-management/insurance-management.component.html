@@ -14,15 +14,18 @@
                     <input class="form-control" type="text" placeholder="Search" (input)="handleTextChange($event)" />
                   </div>
 
-                  <div class="offset-lg-7 col-lg-2">
-                    <label for="showEntries">Show Entries</label>
-                    <select class="form-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
-                      <option [ngValue]="5">5 rows / page</option>
-                      <option [ngValue]="10">10 rows / page</option>
-                      <option [ngValue]="20">20 rows / page</option>
-                      <option [ngValue]="30">30 rows / page</option>
-                      <option [ngValue]="50">50 rows / page</option>
-                    </select>
+                  <div class="col-lg-9 d-flex flex-wrap justify-content-lg-end align-items-end">
+                    <div>
+                      <label for="showEntries">Show Entries</label>
+                      <select class="form-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+                        <option [ngValue]="5">5 rows / page</option>
+                        <option [ngValue]="10">10 rows / page</option>
+                        <option [ngValue]="20">20 rows / page</option>
+                        <option [ngValue]="30">30 rows / page</option>
+                        <option [ngValue]="50">50 rows / page</option>
+                      </select>
+                    </div>
+                    <button routerLink="/insurance/add" type="button" class="btn btn-primary mt-2">Add Insurance</button>
                   </div>
                 </div>
               </div>
@@ -64,15 +67,15 @@
                     <ngb-highlight [result]="item.status | uppercase" [term]="service.searchTerm"></ngb-highlight>
                   </td>
                   <td>
-                    <button placement="top" ngbTooltip="View Details">
+                    <button [routerLink]="['/insurance-details/view', item.id]" placement="top" ngbTooltip="View Details">
                       <i class="fa fa-eye"></i>
                     </button>
-                    <button placement="top" ngbTooltip="Edit">
+                    <button [routerLink]="['/insurance-details/edit', item.id]" placement="top" ngbTooltip="Edit">
                       <i class="fa fa-edit"></i>
                     </button>
-                    <button placement="top" ngbTooltip="Delete">
+                    <!-- <button placement="top" ngbTooltip="Delete">
                       <i class="fa fa-trash-o"></i>
-                    </button>
+                    </button> -->
                   </td>
                 </tr>
               </tbody>

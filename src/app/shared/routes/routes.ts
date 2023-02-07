@@ -66,6 +66,18 @@ export const content: Routes = [
     loadChildren: () => import("../../components/insurance-management/insurance-management.module").then((m) => m.InsuranceManagementModule),
   },
   {
+    path: "insurance-details/view/:id",
+    loadChildren: () => import("../../components/insurance-details/insurance-details.module").then((m) => m.InsuranceDetailsModule),
+  },
+  {
+    path: "insurance-details/edit/:id",
+    loadChildren: () => import("../../components/insurance-details/insurance-details.module").then((m) => m.InsuranceDetailsModule),
+  },
+  {
+    path: "insurance/add",
+    loadChildren: () => import("../../components/insurance-details/insurance-details.module").then((m) => m.InsuranceDetailsModule),
+  },
+  {
     path: "services",
     loadChildren: () => import("../../components/services/services.module").then((m) => m.ServicesModule),
   },

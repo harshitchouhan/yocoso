@@ -162,6 +162,7 @@ export class NavService implements OnDestroy {
       type: "link",
       active: false,
       bookmark: true,
+      nestedLinks: ["insurance", "insurance-details"],
     },
     {
       title: "Services",
