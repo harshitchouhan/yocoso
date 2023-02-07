@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
-  selector: 'app-service-types-details',
-  templateUrl: './service-types-details.component.html',
-  styleUrls: ['./service-types-details.component.scss']
+  selector: "app-service-types-details",
+  templateUrl: "./service-types-details.component.html",
+  styleUrls: ["./service-types-details.component.scss"],
 })
 export class ServiceTypesDetailsComponent implements OnInit {
-
   id!: string;
   pageType: "Add" | "Edit" | "View" = "Add";
 
@@ -24,5 +23,4 @@ export class ServiceTypesDetailsComponent implements OnInit {
       this.pageType = "Edit";
     }
   }
-
 }

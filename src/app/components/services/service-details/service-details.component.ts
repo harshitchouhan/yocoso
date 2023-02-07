@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 // @ts-ignore
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
-  selector: 'app-editor',
-  templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.scss']
+  selector: "app-service-details",
+  templateUrl: "./service-details.component.html",
+  styleUrls: ["./service-details.component.scss"],
 })
-export class EditorComponent implements OnInit {
+export class ServiceDetailsComponent implements OnInit {
+  id!: string;
+  pageType: "Add" | "Edit" | "View" = "Add";
 
   editor = ClassicEditor;
   data: any = `<p>Hello, world!</p>`;
@@ -56,9 +58,18 @@ export class EditorComponent implements OnInit {
   }
   
   public htmlContent = '';
-  
-  constructor() { }
 
-  ngOnInit() { }
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
+  ngOnInit(): void {
+    this.id = this.route.snapshot.params["id"];
+
+    if (this.router.url.includes("/services/all/add")) {
+      this.pageType = "Add";
+    } else if (this.router.url.includes("/services/all/view")) {
+      this.pageType = "View";
+    } else if (this.router.url.includes("/services/all/edit")) {
+      this.pageType = "Edit";
+    }
+  }
 }

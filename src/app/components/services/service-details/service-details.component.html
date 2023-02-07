@@ -1,0 +1,81 @@
+<app-breadcrumb [title]="'Service'" [items]="[{ label: 'Services', link: '/services/all' }]" [active_item]="id ? 'Service - ' + id : 'Add Service'"></app-breadcrumb>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="col-form-label pt-0">Title</label>
+                <input class="form-control" type="text" />
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="col-form-label pt-0">Service Type</label>
+                <input class="form-control" type="text" />
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="col-form-label pt-0">Charges</label>
+                <input class="form-control" type="number" />
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="form-group">
+                <label class="col-form-label pt-0">Description</label>
+                <textarea class="form-control" rows="6"></textarea>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="form-group">
+                <label class="col-form-label pt-0">Service Details</label>
+                <ckeditor [editor]="editor" [config]="config" [data]="data"></ckeditor>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="form-group">
+                <label class="col-form-label pt-0">Key Features</label>
+                <ckeditor [editor]="editor" [config]="config" [data]="data"></ckeditor>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="form-group">
+                <label class="col-form-label pt-0">Restrictions</label>
+                <ckeditor [editor]="editor" [config]="config" [data]="data"></ckeditor>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="form-group">
+                <label class="col-form-label pt-0">Printer</label>
+                <ckeditor [editor]="editor" [config]="config" [data]="data"></ckeditor>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="form-group">
+                <label class="col-form-label pt-0">Drop off Service</label>
+                <ckeditor [editor]="editor" [config]="config" [data]="data"></ckeditor>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="media">
+                <label class="col-form-label m-r-10">Active</label>
+                <div class="media-body text-end icon-state" style="flex: unset">
+                  <label class="switch"> <input type="checkbox" checked="" /><span class="switch-state"></span> </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer" *ngIf="pageType !== 'View'">
+          <button *ngIf="pageType === 'Add'" type="btn" class="btn btn-success">Save</button>
+          <button *ngIf="pageType === 'Edit'" type="btn" class="btn btn-success">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
