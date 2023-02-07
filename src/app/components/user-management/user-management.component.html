@@ -14,15 +14,19 @@
                     <input class="form-control" type="text" placeholder="Search" (input)="handleTextChange($event)" />
                   </div>
 
-                  <div class="offset-lg-7 col-lg-2">
-                    <label for="showEntries">Show Entries</label>
-                    <select class="form-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
-                      <option [ngValue]="5">5 rows / page</option>
-                      <option [ngValue]="10">10 rows / page</option>
-                      <option [ngValue]="20">20 rows / page</option>
-                      <option [ngValue]="30">30 rows / page</option>
-                      <option [ngValue]="50">50 rows / page</option>
-                    </select>
+                  <div class="col-lg-9 d-flex flex-wrap justify-content-lg-end align-items-end">
+                    
+                    <div>
+                      <label for="showEntries">Show Entries</label>
+                      <select class="form-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+                        <option [ngValue]="5">5 rows / page</option>
+                        <option [ngValue]="10">10 rows / page</option>
+                        <option [ngValue]="20">20 rows / page</option>
+                        <option [ngValue]="30">30 rows / page</option>
+                        <option [ngValue]="50">50 rows / page</option>
+                      </select>
+                    </div>
+                    <button routerLink="/user/add" type="btn" class="btn btn-primary mt-2">Add User</button>
                   </div>
                 </div>
               </div>
@@ -60,14 +64,14 @@
                     <ngb-highlight [result]="item.status | uppercase" [term]="service.searchTerm"></ngb-highlight>
                   </td>
                   <td>
-                    <button placement="top" ngbTooltip="View Details">
+                    <button placement="top" [routerLink]="['/user-details/view', item.id]" ngbTooltip="View Details">
                       <i class="fa fa-eye"></i>
                     </button>
-                    <button placement="top" ngbTooltip="Edit">
+                    <button placement="top" [routerLink]="['/user-details/edit', item.id]" ngbTooltip="Edit">
                       <i class="fa fa-edit"></i>
                     </button>
                     <button placement="top" ngbTooltip="Delete">
-                        <i class="fa fa-trash-o"></i>
+                      <i class="fa fa-trash-o"></i>
                     </button>
                   </td>
                 </tr>

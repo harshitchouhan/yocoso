@@ -22,6 +22,18 @@ export const content: Routes = [
     loadChildren: () => import("../../components/user-management/user-management.module").then((m) => m.UserManagementModule),
   },
   {
+    path: "user/add",
+    loadChildren: () => import("../../components/user-details/user-details.module").then((m) => m.UserDetailsModule),
+  },
+  {
+    path: "user-details/view/:id",
+    loadChildren: () => import("../../components/user-details/user-details.module").then((m) => m.UserDetailsModule),
+  },
+  {
+    path: "user-details/edit/:id",
+    loadChildren: () => import("../../components/user-details/user-details.module").then((m) => m.UserDetailsModule),
+  },
+  {
     path: "routes-management",
     loadChildren: () => import("../../components/route-management/route-management.module").then((m) => m.RouteManagementModule),
   },

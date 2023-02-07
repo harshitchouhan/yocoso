@@ -1,0 +1,42 @@
+<app-breadcrumb [title]="'User Details'" [items]="[{ label: 'User Management', link: '/user-management' }]" [active_item]="id ? 'User - ' + id : 'Add User'"></app-breadcrumb>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h5>Details</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="col-form-label pt-0">Username</label>
+                <input class="form-control" type="text" />
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="col-form-label pt-0">Email</label>
+                <input class="form-control" type="text" />
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="col-form-label pt-0">User Type</label>
+                <input class="form-control" type="text" />
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="media">
+                <label class="col-form-label m-r-10">Active</label>
+                <div class="media-body text-end icon-state" style="flex: unset">
+                  <label class="switch"> <input type="checkbox" checked="" /><span class="switch-state"></span> </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
