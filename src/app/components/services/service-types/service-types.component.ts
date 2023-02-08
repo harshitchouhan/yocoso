@@ -52,102 +52,12 @@ export class ServiceTypesComponent implements OnInit {
       {
         id: 1000,
         status: "active",
-        name: "Basil Wilkerson",
+        name: "Door to Door",
       },
       {
         id: 1001,
         status: "active",
-        name: "Jakeem Joyce",
-      },
-      {
-        id: 1002,
-        status: "inactive",
-        name: "Alexander Travis",
-      },
-      {
-        id: 1003,
-        status: "inactive",
-        name: "Jason Elliott",
-      },
-      {
-        id: 1004,
-        status: "active",
-        name: "Marvin Bailey",
-      },
-      {
-        id: 1005,
-        status: "active",
-        name: "Malik Mccarty",
-      },
-      {
-        id: 1006,
-        status: "inactive",
-        name: "Ishmael Flynn",
-      },
-      {
-        id: 1007,
-        status: "inactive",
-        name: "Abdul Hays",
-      },
-      {
-        id: 1008,
-        status: "active",
-        name: "Joelle Hopper",
-      },
-      {
-        id: 1009,
-        status: "active",
-        name: "Nissim Macdonald",
-      },
-      {
-        id: 1010,
-        status: "inactive",
-        name: "Quinn Hardin",
-      },
-      {
-        id: 1011,
-        status: "inactive",
-        name: "Shannon Holland",
-      },
-      {
-        id: 1012,
-        status: "active",
-        name: "Lucas Ferguson",
-      },
-      {
-        id: 1013,
-        status: "active",
-        name: "Kirk Aguilar",
-      },
-      {
-        id: 1014,
-        status: "inactive",
-        name: "Xena Mcintyre",
-      },
-      {
-        id: 1015,
-        status: "inactive",
-        name: "Ulric Patterson",
-      },
-      {
-        id: 1016,
-        status: "active",
-        name: "Aristotle Talley",
-      },
-      {
-        id: 1017,
-        status: "active",
-        name: "Garth Gay",
-      },
-      {
-        id: 1018,
-        status: "inactive",
-        name: "Britanney Mcgowan",
-      },
-      {
-        id: 1019,
-        status: "inactive",
-        name: "Ayanna Gould",
+        name: "Shop to Shop",
       },
     ];
 
