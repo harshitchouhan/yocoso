@@ -39,7 +39,7 @@ function matches(data: any, term: string) {
   let searchTerm = term.toLocaleLowerCase();
 
   return (
-    data.id.includes(searchTerm) ||
+    data.id == searchTerm ||
     data.name.toLowerCase().includes(searchTerm) ||
     data.email.toLowerCase().includes(searchTerm) ||
     data.mobileNo.toLowerCase().includes(searchTerm) ||

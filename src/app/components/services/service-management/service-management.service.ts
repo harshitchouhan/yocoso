@@ -37,7 +37,7 @@ function sort(data: any[], column: SortColumn, direction: string): any[] {
 function matches(data: any, term: string) {
   let searchTerm = term.toLocaleLowerCase();
 
-  return data.id.includes(searchTerm) || data.name.toLowerCase().includes(searchTerm) || data.status.toLowerCase().includes(searchTerm);
+  return data.id == searchTerm || data.name.toLowerCase().includes(searchTerm) || data.status.toLowerCase().includes(searchTerm);
 }
 function matchesFilter(data: any, term: boolean | string) {
   if (term === "all") {

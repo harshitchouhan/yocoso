@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder, public authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
-      email: ["test@gmail.com", [Validators.required, Validators.email, Validators.pattern(environment.emailRegex)]],
+      email: ["admin@gmail.com", [Validators.required, Validators.email, Validators.pattern(environment.emailRegex)]],
       password: ["test123", Validators.required],
     });
   }
@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
 
   // Simple Login
   login() {
-    this.authService.SignIn(this.loginForm.value["email"], this.loginForm.value["password"]);
+    this.router.navigate(['/dashboard']);
+    // this.authService.SignIn(this.loginForm.value["email"], this.loginForm.value["password"]);
   }
 }

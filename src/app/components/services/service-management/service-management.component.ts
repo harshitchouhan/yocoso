@@ -4,12 +4,11 @@ import { NgbdSortableHeader, SortEvent } from "src/app/shared/directives/NgbdSor
 import { TableService } from "./service-management.service";
 
 @Component({
-  selector: 'app-service-management',
-  templateUrl: './service-management.component.html',
-  styleUrls: ['./service-management.component.scss']
+  selector: "app-service-management",
+  templateUrl: "./service-management.component.html",
+  styleUrls: ["./service-management.component.scss"],
 })
 export class ServiceManagementComponent implements OnInit {
-
   public tableItem$: Observable<any[]>;
   total$: Observable<number>;
 
@@ -51,278 +50,107 @@ export class ServiceManagementComponent implements OnInit {
   private _fetchCustomers = () => {
     let data = [
       {
-        id: "123",
-        name: "Door to Door",
+        id: 1000,
         status: "active",
+        name: "Basil Wilkerson",
       },
       {
-        id: "123",
-        name: "Door to Store",
+        id: 1001,
         status: "active",
+        name: "Jakeem Joyce",
       },
       {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
+        id: 1002,
+        status: "inactive",
+        name: "Alexander Travis",
       },
       {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
+        id: 1003,
+        status: "inactive",
+        name: "Jason Elliott",
       },
       {
-        id: "123",
-        name: "Door to Door",
+        id: 1004,
         status: "active",
+        name: "Marvin Bailey",
       },
       {
-        id: "123",
-        name: "Door to Store",
+        id: 1005,
         status: "active",
+        name: "Malik Mccarty",
       },
       {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
+        id: 1006,
+        status: "inactive",
+        name: "Ishmael Flynn",
       },
       {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
+        id: 1007,
+        status: "inactive",
+        name: "Abdul Hays",
       },
       {
-        id: "123",
-        name: "Door to Door",
+        id: 1008,
         status: "active",
+        name: "Joelle Hopper",
       },
       {
-        id: "123",
-        name: "Door to Store",
+        id: 1009,
         status: "active",
+        name: "Nissim Macdonald",
       },
       {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
+        id: 1010,
+        status: "inactive",
+        name: "Quinn Hardin",
       },
       {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
+        id: 1011,
+        status: "inactive",
+        name: "Shannon Holland",
       },
       {
-        id: "123",
-        name: "Door to Door",
+        id: 1012,
         status: "active",
+        name: "Lucas Ferguson",
       },
       {
-        id: "123",
-        name: "Door to Store",
+        id: 1013,
         status: "active",
+        name: "Kirk Aguilar",
       },
       {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
+        id: 1014,
+        status: "inactive",
+        name: "Xena Mcintyre",
       },
       {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
+        id: 1015,
+        status: "inactive",
+        name: "Ulric Patterson",
       },
       {
-        id: "123",
-        name: "Door to Door",
+        id: 1016,
         status: "active",
+        name: "Aristotle Talley",
       },
       {
-        id: "123",
-        name: "Door to Store",
+        id: 1017,
         status: "active",
+        name: "Garth Gay",
       },
       {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
+        id: 1018,
+        status: "inactive",
+        name: "Britanney Mcgowan",
       },
       {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Door",
-        status: "active",
-      },
-      {
-        id: "123",
-        name: "Door to Store",
-        status: "active",
+        id: 1019,
+        status: "inactive",
+        name: "Ayanna Gould",
       },
     ];
 
     this.service.initialData = data;
   };
-
 }

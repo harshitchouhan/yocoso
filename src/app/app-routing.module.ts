@@ -30,13 +30,11 @@ const routes: Routes = [
   {
     path: "",
     component: ContentComponent,
-    canActivate: [AdminGuard],
     children: content,
   },
   {
     path: "",
     component: FullComponent,
-    canActivate: [AdminGuard],
     children: full,
   },
   {
