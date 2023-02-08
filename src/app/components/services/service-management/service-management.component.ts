@@ -52,17 +52,22 @@ export class ServiceManagementComponent implements OnInit {
       {
         id: 1000,
         status: "active",
-        name: "UK Services",
+        name: "Shop to Shop",
       },
       {
         id: 1001,
         status: "active",
-        name: "International",
+        name: "Door 2 Door - Next Day",
       },
       {
         id: 1002,
         status: "inactive",
-        name: "Logistics",
+        name: "Drop Off at Shop",
+      },
+      {
+        id: 1003,
+        status: "active",
+        name: "Door 2 Door - By 12",
       },
     ];
 

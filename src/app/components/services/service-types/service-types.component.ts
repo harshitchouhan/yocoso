@@ -52,12 +52,12 @@ export class ServiceTypesComponent implements OnInit {
       {
         id: 1000,
         status: "active",
-        name: "Door to Door",
+        name: "Drop Off Services",
       },
       {
         id: 1001,
         status: "active",
-        name: "Shop to Shop",
+        name: "Next Day Services",
       },
     ];
 
